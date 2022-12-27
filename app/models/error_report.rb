@@ -1,0 +1,2 @@
+class ErrorReport < ApplicationRecord
+end
