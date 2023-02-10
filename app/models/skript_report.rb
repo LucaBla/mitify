@@ -1,0 +1,2 @@
+class SkriptReport < ErrorReport
+end

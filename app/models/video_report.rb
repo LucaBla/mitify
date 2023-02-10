@@ -1,0 +1,2 @@
+class VideoReport < ErrorReport
+end

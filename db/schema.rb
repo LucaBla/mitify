@@ -10,13 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_22_173942) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_10_165426) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "error_reports", force: :cascade do |t|
+    t.string "type", null: false
+    t.string "reportType"
     t.string "module"
     t.text "description"
+    t.string "status"
+    t.integer "priority"
+    t.string "author"
+    t.string "eMail"
+    t.integer "page"
+    t.integer "chapter"
+    t.integer "illustrationNumber"
+    t.integer "tableNumber"
+    t.string "videoTitle"
+    t.integer "timestampStart"
+    t.integer "timestampEnd"
+    t.string "videoURL"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "skript_reports", force: :cascade do |t|
+  end
+
+  create_table "video_reports", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
