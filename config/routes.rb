@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users,
+  devise_for :mitify_users,
   controllers: {
     sessions: 'api/v1/sessions'
   }

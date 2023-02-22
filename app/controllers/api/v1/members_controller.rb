@@ -1,5 +1,5 @@
 class Api::V1::MembersController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_mitify_user!
 
   def show
     render json: {
