@@ -47,6 +47,7 @@ class Api::V1::VideoReportsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def video_report_params
       params.require(:video_report).permit( :reportType, :module, :description, :status, :priority, :author,
-                                            :eMail, :videoTitle, :timestampStart, :timestampEnd, :videoURL)
+                                            :eMail, :videoTitle, :timestampStart, :timestampEnd, :videoURL,
+                                            :report_date, :granted_date, :completed_date)
     end
 end
