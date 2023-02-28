@@ -1,5 +1,6 @@
 class Api::V1::VideoReportsController < ApplicationController
   before_action :set_video_report, only: %i[ show update destroy ]
+  before_action :authenticate_mitify_user!
 
   # GET /video_reports
   def index

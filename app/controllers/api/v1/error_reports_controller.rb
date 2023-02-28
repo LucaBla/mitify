@@ -1,5 +1,6 @@
 class Api::V1::ErrorReportsController < ApplicationController
   before_action :set_error_report, only: %i[ show update destroy ]
+  before_action :authenticate_mitify_user!
 
   # GET /error_reports
   def index
@@ -10,7 +11,10 @@ class Api::V1::ErrorReportsController < ApplicationController
 
   # GET /error_reports/1
   def show
-    render json: @error_report
+    render json: {
+      error_report: @error_report,
+      author: @error_report.mitify_user
+    }
   end
 
   # POST /error_reports

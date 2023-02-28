@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_22_182651) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_28_162158) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -36,6 +36,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_22_182651) do
     t.integer "report_date"
     t.integer "granted_date"
     t.integer "completed_date"
+    t.bigint "mitify_user_id"
+    t.index ["mitify_user_id"], name: "index_error_reports_on_mitify_user_id"
   end
 
   create_table "jwt_denylist", force: :cascade do |t|
@@ -54,8 +56,22 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_22_182651) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "first_name"
+    t.boolean "active", default: true
+    t.bigint "role_id"
     t.index ["email"], name: "index_mitify_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_mitify_users_on_reset_password_token", unique: true
+    t.index ["role_id"], name: "index_mitify_users_on_role_id"
   end
 
+  create_table "roles", force: :cascade do |t|
+    t.string "title"
+    t.boolean "active", default: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "error_reports", "mitify_users"
+  add_foreign_key "mitify_users", "roles"
 end

@@ -1,5 +1,6 @@
 class Api::V1::SkriptReportsController < ApplicationController
   before_action :set_skript_report, only: %i[ show update destroy ]
+  before_action :authenticate_mitify_user!
 
   # GET /skript_reports
   def index
