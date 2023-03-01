@@ -4,7 +4,6 @@ class Api::V1::ErrorReportsController < ApplicationController
 
   # GET /error_reports
   def index
-    #@error_reports = ErrorReport.all
     @error_reports = ErrorReport.includes(mitify_user: [:role])
 
     render json: 
@@ -12,7 +11,6 @@ class Api::V1::ErrorReportsController < ApplicationController
                                                         only: [:name, :first_name, :email],
                                                         include:{ role: {
                                                           only: :title}}}})
-    
   end
 
   # GET /error_reports/1

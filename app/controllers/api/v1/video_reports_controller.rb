@@ -4,9 +4,13 @@ class Api::V1::VideoReportsController < ApplicationController
 
   # GET /video_reports
   def index
-    @video_reports = VideoReport.all
+    @video_reports = VideoReport.includes(mitify_user: [:role])
 
-    render json: @video_reports
+    render json: 
+      @video_reports.as_json(include: { mitify_user: {
+                                                        only: [:name, :first_name, :email],
+                                                        include:{ role: {
+                                                          only: :title}}}})
   end
 
   # GET /video_reports/1

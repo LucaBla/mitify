@@ -4,9 +4,13 @@ class Api::V1::SkriptReportsController < ApplicationController
 
   # GET /skript_reports
   def index
-    @skript_reports = SkriptReport.all
+    @skript_reports = SkriptReport.includes(mitify_user: [:role])
 
-    render json: @skript_reports
+    render json: 
+      @skript_reports.as_json(include: { mitify_user: {
+                                                        only: [:name, :first_name, :email],
+                                                        include:{ role: {
+                                                          only: :title}}}})
   end
 
   # GET /skript_reports/1
