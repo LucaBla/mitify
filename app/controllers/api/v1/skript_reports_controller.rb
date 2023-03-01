@@ -11,7 +11,10 @@ class Api::V1::SkriptReportsController < ApplicationController
 
   # GET /skript_reports/1
   def show
-    render json: @skript_report
+    render json: {
+      skript_report: @skript_report,
+      author: @skript_report.mitify_user
+    }
   end
 
   # POST /skript_reports

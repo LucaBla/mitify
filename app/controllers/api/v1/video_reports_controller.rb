@@ -11,7 +11,10 @@ class Api::V1::VideoReportsController < ApplicationController
 
   # GET /video_reports/1
   def show
-    render json: @video_report
+    render json: {
+      video_report: @video_report,
+      author: @video_report.mitify_user
+    }
   end
 
   # POST /video_reports
