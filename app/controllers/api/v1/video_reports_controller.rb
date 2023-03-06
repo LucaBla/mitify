@@ -56,6 +56,6 @@ class Api::V1::VideoReportsController < ApplicationController
     def video_report_params
       params.require(:video_report).permit( :reportType, :module, :description, :status, :priority, :author,
                                             :eMail, :videoTitle, :timestampStart, :timestampEnd, :videoURL,
-                                            :report_date, :granted_date, :completed_date)
+                                            :report_date, :granted_date, :completed_date, :mitify_user_id)
     end
 end
