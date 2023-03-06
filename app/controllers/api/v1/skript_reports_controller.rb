@@ -56,6 +56,6 @@ class Api::V1::SkriptReportsController < ApplicationController
     def skript_report_params
       params.require(:skript_report).permit(:reportType, :module, :description, :status, :priority, :author,
                                             :eMail, :page, :chapter, :illustrationNumber, :tableNumber,
-                                            :report_date, :granted_date, :completed_date)
+                                            :report_date, :granted_date, :completed_date, :mitify_user_id)
     end
 end
