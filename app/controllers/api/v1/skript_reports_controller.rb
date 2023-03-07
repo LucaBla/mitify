@@ -1,61 +1,31 @@
-class Api::V1::SkriptReportsController < ApplicationController
-  before_action :set_skript_report, only: %i[ show update destroy ]
+class Api::V1::SkriptReportsController < Api::V1::ErrorReportsController
   before_action :authenticate_mitify_user!
 
   # GET /skript_reports
   def index
-    @skript_reports = SkriptReport.includes(mitify_user: [:role])
+    @skript_reports = get_reports().where(type: "SkriptReport")
 
     render json: 
       @skript_reports.as_json(include: { mitify_user: {
                                                         only: [:name, :first_name, :email],
                                                         include:{ role: {
-                                                          only: :title}}}})
-  end
-
-  # GET /skript_reports/1
-  def show
-    render json: {
-      skript_report: @skript_report,
-      author: @skript_report.mitify_user
-    }
+                                                        only: :title}}}})
   end
 
   # POST /skript_reports
   def create
-    @skript_report = SkriptReport.new(skript_report_params)
+    @skript_report = SkriptReport.new(report_params)
 
-    if @skript_report.save
-      render json: @skript_report, status: :created
-    else
-      render json: @skript_report.errors, status: :unprocessable_entity
-    end
+    save_report(@skript_report)
   end
-
-  # PATCH/PUT /skript_reports/1
-  def update
-    if @skript_report.update(skript_report_params)
-      render json: @skript_report
-    else
-      render json: @skript_report.errors, status: :unprocessable_entity
-    end
-  end
-
-  # DELETE /skript_reports/1
-  def destroy
-    @skript_report.destroy
-  end
+  
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_skript_report
-      @skript_report = SkriptReport.find(params[:id])
-    end
-
     # Only allow a list of trusted parameters through.
-    def skript_report_params
-      params.require(:skript_report).permit(:reportType, :module, :description, :status, :priority, :author,
+    def report_params
+      params.require(:skript_report).permit(:reportType, :description, :status, :priority, :author,
                                             :eMail, :page, :chapter, :illustrationNumber, :tableNumber,
-                                            :report_date, :granted_date, :completed_date, :mitify_user_id)
+                                            :report_date, :granted_date, :completed_date,
+                                            :university_module_id)
     end
 end
