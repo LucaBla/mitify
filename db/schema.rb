@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_07_034742) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_13_034045) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -39,9 +39,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_034742) do
     t.string "videoURL"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "report_date"
-    t.integer "granted_date"
-    t.integer "completed_date"
+    t.bigint "report_date"
+    t.bigint "granted_date"
+    t.bigint "completed_date"
     t.bigint "mitify_user_id"
     t.bigint "university_module_id"
     t.index ["mitify_user_id"], name: "index_error_reports_on_mitify_user_id"
