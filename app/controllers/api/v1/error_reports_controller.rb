@@ -48,24 +48,24 @@ class Api::V1::ErrorReportsController < ApplicationController
       if current_mitify_user.role.title == "Student"
         @error_reports = ErrorReport.includes(mitify_user: [:role])
                                        .where(mitify_user: current_mitify_user)
-       elsif current_mitify_user.role.title == "Modulverantwortlicher"
+      elsif current_mitify_user.role.title == "Modulverantwortlicher"
         @error_reports = ErrorReport.includes(mitify_user: [:role]).joins(:university_module)
                                     .where(university_module: {responsible: current_mitify_user})
-       else
-         render json:{
-             message: "no fitting role!"
-         }
+      else
+        render json:{
+          message: "no fitting role!"
+        }
          return
-       end
+      end
   
-       if index_params[:status] == "closed"
-        @error_reports = @error_reports.where(status: "closed")
+      if index_params[:status] == "abgeschlossen"
+        @error_reports = @error_reports.where(status: "abgeschlossen")
                                            .order(:priority)
-       else
-        @error_reports = @error_reports.where.not(status: "closed")
+      else
+        @error_reports = @error_reports.where.not(status: "abgeschlossen")
                                           .order(:priority)
-       end
-       @error_reports
+      end
+        @error_reports
     end
 
     def save_report(report)
