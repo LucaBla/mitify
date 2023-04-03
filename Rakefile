@@ -3,6 +3,7 @@
 require 'rdoc/task'
 
 RDoc::Task.new(:rdoc) do |rdoc|
+  rdoc.rdoc_dir = 'docs'
   rdoc.rdoc_files.include('README.md', 'app/**/*.rb')
   rdoc.title = 'Mitify'
   rdoc.options << "--all"
