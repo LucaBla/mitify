@@ -111,15 +111,17 @@
         </div>
 
         <div class="method-description">
-          <p>POST /skript_reports Creates a new script report based on <a href="ErrorReportsController.html#method-i-save_report"><code>Api::V1::ErrorReportsController#save_report</code></a> method. The attributes are obtained from the ‘report_params` method.</p>
+          <p>POST /skript_reports</p>
+
+<p>Creates a new script report based on <a href="ErrorReportsController.html#method-i-save_report"><code>Api::V1::ErrorReportsController#save_report</code></a> method. The attributes are obtained from the ‘report_params` method.</p>
 
           <div class="method-source-code" id="create-source">
             <pre>   <span class="ruby-comment"># File app/controllers/api/v1/skript_reports_controller.rb</span>
-<span class="line-num">46</span> <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">create</span>
-<span class="line-num">47</span>   <span class="ruby-ivar">@skript_report</span> = <span class="ruby-constant">SkriptReport</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">report_params</span>)
-<span class="line-num">48</span> 
-<span class="line-num">49</span>   <span class="ruby-identifier">save_report</span>(<span class="ruby-ivar">@skript_report</span>)
-<span class="line-num">50</span> <span class="ruby-keyword">end</span></pre>
+<span class="line-num">47</span> <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">create</span>
+<span class="line-num">48</span>   <span class="ruby-ivar">@skript_report</span> = <span class="ruby-constant">SkriptReport</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">report_params</span>)
+<span class="line-num">49</span> 
+<span class="line-num">50</span>   <span class="ruby-identifier">save_report</span>(<span class="ruby-ivar">@skript_report</span>)
+<span class="line-num">51</span> <span class="ruby-keyword">end</span></pre>
           </div>
         </div>
 
@@ -219,12 +221,12 @@
 
           <div class="method-source-code" id="report_params-source">
             <pre>   <span class="ruby-comment"># File app/controllers/api/v1/skript_reports_controller.rb</span>
-<span class="line-num">55</span> <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">report_params</span>
-<span class="line-num">56</span>   <span class="ruby-identifier">params</span>.<span class="ruby-identifier">require</span>(<span class="ruby-value">:skript_report</span>).<span class="ruby-identifier">permit</span>(<span class="ruby-value">:reportType</span>, <span class="ruby-value">:description</span>, <span class="ruby-value">:status</span>, <span class="ruby-value">:priority</span>, <span class="ruby-value">:author</span>,
-<span class="line-num">57</span>                                         <span class="ruby-value">:eMail</span>, <span class="ruby-value">:page</span>, <span class="ruby-value">:chapter</span>, <span class="ruby-value">:illustrationNumber</span>, <span class="ruby-value">:tableNumber</span>,
-<span class="line-num">58</span>                                         <span class="ruby-value">:report_date</span>, <span class="ruby-value">:granted_date</span>, <span class="ruby-value">:completed_date</span>,
-<span class="line-num">59</span>                                         <span class="ruby-value">:university_module_id</span>)
-<span class="line-num">60</span> <span class="ruby-keyword">end</span></pre>
+<span class="line-num">56</span> <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">report_params</span>
+<span class="line-num">57</span>   <span class="ruby-identifier">params</span>.<span class="ruby-identifier">require</span>(<span class="ruby-value">:skript_report</span>).<span class="ruby-identifier">permit</span>(<span class="ruby-value">:reportType</span>, <span class="ruby-value">:description</span>, <span class="ruby-value">:status</span>, <span class="ruby-value">:priority</span>, <span class="ruby-value">:author</span>,
+<span class="line-num">58</span>                                         <span class="ruby-value">:eMail</span>, <span class="ruby-value">:page</span>, <span class="ruby-value">:chapter</span>, <span class="ruby-value">:illustrationNumber</span>, <span class="ruby-value">:tableNumber</span>,
+<span class="line-num">59</span>                                         <span class="ruby-value">:report_date</span>, <span class="ruby-value">:granted_date</span>, <span class="ruby-value">:completed_date</span>,
+<span class="line-num">60</span>                                         <span class="ruby-value">:university_module_id</span>)
+<span class="line-num">61</span> <span class="ruby-keyword">end</span></pre>
           </div>
         </div>
 
