@@ -41,6 +41,7 @@ class Api::V1::SkriptReportsController < Api::V1::ErrorReportsController
   end
 
   # POST /skript_reports
+  #
   # Creates a new script report based on Api::V1::ErrorReportsController#save_report method.
   # The attributes are obtained from the `report_params` method.
   def create

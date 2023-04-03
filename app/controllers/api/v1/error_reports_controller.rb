@@ -48,7 +48,8 @@ class Api::V1::ErrorReportsController < ApplicationController
   end
 
   # GET /error_reports/1
-   # Returns the details of a specific error report, including the author.
+  #
+  # Returns the details of a specific error report, including the author.
   def show
     render json: {
       error_report: @error_report,
@@ -57,6 +58,7 @@ class Api::V1::ErrorReportsController < ApplicationController
   end
 
   # POST /error_reports
+  #
   # Creates a new error report based on the save_report method.
   # The attributes are obtained from the `report_params` method.
   def create
@@ -79,6 +81,7 @@ class Api::V1::ErrorReportsController < ApplicationController
   end
 
   # DELETE /error_reports/1
+  #
   # Deletes the specified error report.
   def destroy
     @error_report.destroy
