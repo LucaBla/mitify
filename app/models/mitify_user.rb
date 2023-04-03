@@ -1,3 +1,12 @@
+# Uses the devise gem to ensure a secure user authorization.
+#
+# Autorization is executed with a JWT token.
+#
+# A User can have multiple ErrorReport 's.
+#
+# A User can attend multiple UniversityModule 's.
+#
+# User can have multiple UniversityModule 's he is responsible for.
 class MitifyUser < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

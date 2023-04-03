@@ -1,3 +1,8 @@
+# The university module either attended by students or supervised by a
+# Modulverantwortlicher(module supervisor).
+# Both are MitifyUser 's.
+#
+# Has multiple ErrorReport 's belonging to this university module.
 class UniversityModule < ApplicationRecord
   belongs_to :responsible, class_name: "MitifyUser", foreign_key: "responsible_id"
   has_many :error_reports
