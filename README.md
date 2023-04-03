@@ -1,4 +1,7 @@
 # Correction Management System for iu Distance Learning
+
+# [Documentation](https://lucabla.github.io/mitify/)
+
 ## Overview
 This project is a Ruby on Rails API that provides a correction management system for the iu. The system was developed to quickly and easily report and manage errors, suggestions for improvement, and additions to materials. It allows for central collection, categorization, assignment, and evaluation of all reports and provides traceability throughout the life cycle of a report until it is implemented or rejected.
 
